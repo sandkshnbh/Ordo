@@ -62,6 +62,4 @@ flutter run
 
 ## التواصل
 
-- الموقع الإلكتروني: [www.example.com](https://www.example.com)
-- البريد الإلكتروني: example@example.com
 - تويتر: [@sandkshnbh](https://x.com/sandkshnbh)
