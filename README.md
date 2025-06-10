@@ -28,7 +28,7 @@
 
 1. قم بنسخ المشروع:
 ```bash
-git clone https://github.com/yourusername/ordo.git
+git clone https://github.com/sandkshnbh/ordo.git
 ```
 
 2. انتقل إلى مجلد المشروع:
