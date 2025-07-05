@@ -1,0 +1,19 @@
+{
+  "app_title": "Ordo",
+  "add_task": "Dodaj zadanie",
+  "edit_task": "Edytuj zadanie",
+  "save_task": "Zapisz zadanie",
+  "task_title": "Tytuł zadania",
+  "task_description": "Opis zadania",
+  "priority": "Priorytet",
+  "urgent": "Pilne",
+  "important": "Ważne",
+  "normal": "Normalne",
+  "no_tasks": "Brak zadań",
+  "active_tasks": "Aktywne zadania: {count}",
+  "settings": "Ustawienia",
+  "language": "Język",
+  "strike_style": "Styl przekreślenia",
+  "blur_selected_text": "Zamazuj zaznaczony tekst",
+  "select_text_first": "Najpierw zaznacz tekst"
+} 

@@ -1,0 +1,19 @@
+{
+  "app_title": "Ordo",
+  "add_task": "افزودن کار",
+  "edit_task": "ویرایش کار",
+  "save_task": "ذخیره کار",
+  "task_title": "عنوان کار",
+  "task_description": "توضیحات کار",
+  "priority": "اولویت",
+  "urgent": "فوری",
+  "important": "مهم",
+  "normal": "عادی",
+  "no_tasks": "هیچ کاری وجود ندارد",
+  "active_tasks": "کارهای فعال: {count}",
+  "settings": "تنظیمات",
+  "language": "زبان",
+  "strike_style": "سبک خط خوردگی",
+  "blur_selected_text": "متن انتخاب شده را تار کن",
+  "select_text_first": "ابتدا متن را انتخاب کنید"
+} 
