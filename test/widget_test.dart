@@ -12,7 +12,6 @@ import 'package:ordo/providers/task_provider.dart';
 import 'package:ordo/services/task_service.dart';
 import 'package:provider/provider.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:ordo/models/task_model.dart';
 import 'dart:io';
 
 void main() {
