@@ -1,126 +1,74 @@
-# Ordo - Task Management App
+# Ordo - تطبيق إدارة المهام العصري
 
-A modern Flutter task management application with a beautiful Liquid Glass theme option.
+Ordo هو تطبيق حديث لإدارة المهام اليومية، مصمم بواجهة أنيقة وسلسة باستخدام Flutter، ويوفر تجربة استخدام متقدمة مع دعم ثيم الزجاج السائل (Liquid Glass) الذي يمنحك إحساسًا عصريًا وفريدًا.
 
-## Features
+## الميزات الأساسية
 
-### Core Features
-- ✅ **Task Management**: Create, edit, and delete tasks
-- ✅ **Priority Levels**: Set task priority (Urgent, Important, Normal)
-- ✅ **Voice Tasks**: Record voice notes for tasks
-- ✅ **Spoiler Text**: Hide sensitive information in task descriptions
-- ✅ **Multi-language Support**: Arabic, English, Korean, Chinese, Russian, Turkish, Spanish
+- **إدارة المهام:** أضف، عدّل، واحذف مهامك بسهولة مع تصنيفها حسب الأولوية (عاجل، مهم، عادي).
+- **المهام الصوتية:** سجل ملاحظات صوتية وأرفقها بالمهام مباشرة من التطبيق.
+- **نصوص مخفية:** خاصية إخفاء المعلومات الحساسة في وصف المهمة (Spoiler Text).
+- **دعم متعدد اللغات:** التطبيق متوفر بعدة لغات منها العربية، الإنجليزية، الكورية، الصينية، الروسية، التركية، الإسبانية وغيرها.
+- **ثيم الزجاج السائل:** تأثيرات زجاجية شفافة مع ضبابية، بطاقات زجاجية، أزرار متدرجة متوهجة، وانتقالات بصرية سلسة.
+- **تصميم متجاوب:** يتكيف مع جميع أحجام الشاشات ويوفر تجربة استخدام مثالية على مختلف الأجهزة.
 
-### New: Liquid Glass Theme 🌟
-- 🎨 **Liquid Glass Design**: Beautiful glassmorphism effect with advanced visual effects
-- 🌊 **Smooth Animations**: Fluid transitions and hover effects
-- 💎 **Glass Cards**: Transparent cards with blur effects
-- ✨ **Gradient Buttons**: Stunning gradient buttons with glow effects
-- 🎯 **Theme Toggle**: Easy switch between classic and Liquid Glass themes
+## كيفية الاستخدام
 
-## Liquid Glass Theme Features
+1. افتح التطبيق وأضف مهامك وحدد أولويتها.
+2. يمكنك تسجيل مهمة صوتية وإرفاقها مباشرة بالمهام.
+3. لتفعيل ثيم الزجاج السائل، انتقل إلى الإعدادات وقم بتفعيل الخيار المخصص.
+4. استعرض مهامك، وعدّلها أو احذفها حسب الحاجة.
 
-The Liquid Glass theme provides:
-- **Glassmorphism Effects**: Semi-transparent elements with backdrop blur
-- **Advanced Shadows**: Multi-layered shadows for depth
-- **Gradient Accents**: Beautiful color gradients throughout the UI
-- **Smooth Transitions**: Animated theme switching
-- **Responsive Design**: Adapts to different screen sizes
+## بنية المشروع
 
-## Screenshots
-
-### Classic Theme
-![Classic Theme](screenshots/classic-theme.png)
-
-### Liquid Glass Theme
-![Liquid Glass Theme](screenshots/liquid-glass-theme.png)
-
-## Getting Started
-
-### Prerequisites
-- Flutter SDK (>=3.4.3)
-- Dart SDK
-- Android Studio / VS Code
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/sandkshnbh/ordo.git
-cd ordo
+```
+lib/
+├── core/                     # الثيمات والإعدادات الأساسية
+├── providers/                # إدارة الحالة (المهام، اللغة، الثيم)
+├── screens/                  # الشاشات الرئيسية (الرئيسية، إضافة مهمة، الإعدادات)
+├── widgets/                  # مكونات واجهة المستخدم (بطاقات المهام، إلخ)
+└── l10n/                     # ملفات الترجمة
 ```
 
-2. Install dependencies:
+## التقنيات المستخدمة
+
+- **Flutter** و **Dart**
+- **Provider:** لإدارة الحالة
+- **Hive** و **Shared Preferences:** للتخزين المحلي وتفضيلات المستخدم
+- **record** و **mic_stream:** لتسجيل الصوت
+- **font_awesome_flutter:** أيقونات احترافية
+- **google_fonts:** خطوط مخصصة
+
+## التثبيت والتشغيل
+
+1. استنسخ المستودع:
+```bash
+git clone https://github.com/yourusername/ordo.git
+cd ordo
+```
+2. ثبّت الاعتماديات:
 ```bash
 flutter pub get
 ```
-
-3. Run the app:
+3. شغّل التطبيق:
 ```bash
 flutter run
 ```
 
-## How to Use Liquid Glass Theme
+## المساهمة
 
-1. Open the app
-2. Go to Settings (⚙️ icon in the top-left)
-3. Find "Liquid Glass Theme" section
-4. Toggle the switch to enable/disable the theme
-5. Enjoy the beautiful glassmorphism effects!
+- يمكنك المساهمة عبر Fork وفتح Pull Request بعد إضافة ميزات أو إصلاح مشاكل.
+- يرجى إضافة اختبارات عند الحاجة.
 
-## Project Structure
+## الترخيص
 
-```
-lib/
-├── core/
-│   ├── theme.dart              # Classic theme
-│   └── liquid_glass_theme.dart # Liquid Glass theme
-├── providers/
-│   ├── task_provider.dart      # Task state management
-│   ├── locale_provider.dart    # Language management
-│   └── theme_provider.dart     # Theme state management
-├── screens/
-│   ├── home_screen.dart        # Main screen
-│   ├── add_task_screen.dart    # Add/edit tasks
-│   └── settings_screen.dart    # App settings
-├── widgets/
-│   ├── task_card.dart          # Task display
-│   ├── liquid_glass_card.dart  # Liquid Glass components
-│   └── spoiler_text.dart       # Hidden text component
-└── l10n/                       # Localization files
-```
+هذا المشروع مرخص تحت رخصة MIT - راجع ملف [LICENSE](LICENSE) لمزيد من التفاصيل.
 
-## Dependencies
-
-- `flutter_localizations`: Multi-language support
-- `provider`: State management
-- `hive`: Local data storage
-- `shared_preferences`: Theme preferences
-- `font_awesome_flutter`: Icons
-- `google_fonts`: Typography
-- `record`: Voice recording
-- `url_launcher`: External links
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
+## المطور
 
 **Sand Kshnbh**
 - Telegram: [@sndkshnbh](https://t.me/sndkshnbh)
 - Twitter: [@sandkshnbh](https://twitter.com/sandkshnbh)
 
-## Acknowledgments
+---
 
-- Liquid Glass design inspired by modern UI/UX trends
-- Glassmorphism effects for enhanced visual appeal
-- Flutter community for excellent packages and support
+واجهة عصرية، ميزات متقدمة، وسهولة في إدارة مهامك اليومية مع Ordo.
