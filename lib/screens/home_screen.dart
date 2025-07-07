@@ -7,7 +7,6 @@ import 'package:ordo/providers/task_provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ordo/screens/settings_screen.dart';
 import 'package:ordo/l10n/app_localizations.dart';
-import 'package:record/record.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import 'package:ordo/models/task_model.dart';
@@ -15,6 +14,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:mic_stream/mic_stream.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:record/record.dart';
+import 'package:record/record.dart';
 
 class HomeScreen extends StatefulWidget {
   final bool openAddTask;
@@ -26,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  bool _showingAddTask = false;
+  final bool _showingAddTask = false;
   bool _fabPressed = false;
 
   @override
@@ -64,117 +65,119 @@ class _HomeScreenState extends State<HomeScreen>
     final taskProvider = Provider.of<TaskProvider>(context);
 
     return Stack(
-        children: [
-          AnimatedScale(
-            scale: _showingAddTask ? 0.93 : 1.0,
-            duration: const Duration(milliseconds: 350),
-            curve: Curves.ease,
-            child: AbsorbPointer(
-              absorbing: _showingAddTask,
-              child: Scaffold(
-                appBar: AppBar(
-                  title: Text(AppLocalizations.of(context)!.app_title),
-                  centerTitle: true,
-                  leading: IconButton(
-                    icon: const Icon(Icons.settings_rounded),
-                    tooltip: AppLocalizations.of(context)!.settings,
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const SettingsScreen(),
-                        ),
-                      );
-                    },
-                  ),
+      children: [
+        AnimatedScale(
+          scale: _showingAddTask ? 0.93 : 1.0,
+          duration: const Duration(milliseconds: 350),
+          curve: Curves.ease,
+          child: AbsorbPointer(
+            absorbing: _showingAddTask,
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text(AppLocalizations.of(context)!.app_title),
+                centerTitle: true,
+                leading: IconButton(
+                  icon: const Icon(Icons.settings_rounded),
+                  tooltip: AppLocalizations.of(context)!.settings,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsScreen(),
+                      ),
+                    );
+                  },
                 ),
-                body: RefreshIndicator(
-                  onRefresh: () => taskProvider.loadTasks(),
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Text(
-                            AppLocalizations.of(context)!.active_tasks(
-                              taskProvider.activeTasks.length,
-                            ),
-                            style: theme.textTheme.titleLarge,
+              ),
+              body: RefreshIndicator(
+                onRefresh: () => taskProvider.loadTasks(),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          AppLocalizations.of(context)!.active_tasks(
+                            taskProvider.activeTasks.length,
                           ),
+                          style: theme.textTheme.titleLarge,
                         ),
                       ),
-                      if (taskProvider.isLoading && taskProvider.tasks.isEmpty)
-                        const SliverFillRemaining(
-                          child: Center(child: CircularProgressIndicator()),
-                        )
-                      else if (taskProvider.tasks.isEmpty)
-                        SliverFillRemaining(
-                          child: Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Image.asset(
-                                  'assets/icons/ordo.png',
-                                  width: 180,
-                                  height: 180,
-                                ),
-                                const SizedBox(height: 18),
-                                Text(
-                                  AppLocalizations.of(context)!.no_tasks,
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      else
-                        SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (context, index) {
-                              final task = taskProvider.tasks[index];
-                              return TaskCard(task: task);
-                            },
-                            childCount: taskProvider.tasks.length,
+                    ),
+                    if (taskProvider.isLoading && taskProvider.tasks.isEmpty)
+                      const SliverFillRemaining(
+                        child: Center(child: CircularProgressIndicator()),
+                      )
+                    else if (taskProvider.tasks.isEmpty)
+                      SliverFillRemaining(
+                        child: Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                'assets/icons/ordo.png',
+                                width: 180,
+                                height: 180,
+                              ),
+                              const SizedBox(height: 18),
+                              Text(
+                                AppLocalizations.of(context)!.no_tasks,
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                            ],
                           ),
                         ),
-                    ],
-                  ),
+                      )
+                    else
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                            final task = taskProvider.tasks[index];
+                            return TaskCard(task: task);
+                          },
+                          childCount: taskProvider.tasks.length,
+                        ),
+                      ),
+                  ],
                 ),
+              ),
               floatingActionButton: FloatingActionButton(
-                          heroTag: 'add_task',
+                heroTag: 'add_task',
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 elevation: 8,
-                          onPressed: _openAddTaskSheet,
-                child: const Icon(Icons.add, size: 36),
-                          tooltip: AppLocalizations.of(context)!.add_task,
+                onPressed: _openAddTaskSheet,
+                tooltip: AppLocalizations.of(context)!.add_task,
                 shape: const CircleBorder(),
-                ),
+                child: const Icon(Icons.add, size: 36),
               ),
             ),
           ),
-          if (_showingAddTask)
-            AnimatedOpacity(
-              opacity: _showingAddTask ? 1.0 : 0.0,
-              duration: const Duration(milliseconds: 350),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-                child: Container(
-                  color: Colors.black.withOpacity(0.15),
-                ),
+        ),
+        if (_showingAddTask)
+          AnimatedOpacity(
+            opacity: _showingAddTask ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 350),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+              child: Container(
+                color: Colors.black.withOpacity(0.15),
               ),
             ),
-        ],
+          ),
+      ],
     );
   }
 }
 
 class VoiceTaskSheet extends StatefulWidget {
+  const VoiceTaskSheet({super.key});
+
   @override
   State<VoiceTaskSheet> createState() => _VoiceTaskSheetState();
 }
 
 class _VoiceTaskSheetState extends State<VoiceTaskSheet>
     with SingleTickerProviderStateMixin {
-  final _record = Record();
+  final AudioRecorder _audioRecorder = AudioRecorder();
   bool _isRecording = false;
   String? _filePath;
   Duration _duration = Duration.zero;
@@ -183,7 +186,7 @@ class _VoiceTaskSheetState extends State<VoiceTaskSheet>
   static const int _maxSeconds = 30;
   late AnimationController _barsAnim;
   Stream<List<int>>? _micStream;
-  List<int> _webAudioBuffer = [];
+  final List<int> _webAudioBuffer = [];
 
   @override
   void initState() {
@@ -196,7 +199,6 @@ class _VoiceTaskSheetState extends State<VoiceTaskSheet>
   @override
   void dispose() {
     _timer?.cancel();
-    _record.dispose();
     _titleController.dispose();
     _barsAnim.dispose();
     super.dispose();
@@ -207,7 +209,7 @@ class _VoiceTaskSheetState extends State<VoiceTaskSheet>
       if (kIsWeb) {
         // تسجيل صوتي للويب باستخدام mic_stream
         _webAudioBuffer.clear();
-        _micStream = await MicStream.microphone(
+        _micStream = MicStream.microphone(
           audioSource: AudioSource.DEFAULT,
           sampleRate: 44100,
           channelConfig: ChannelConfig.CHANNEL_IN_MONO,
@@ -239,13 +241,13 @@ class _VoiceTaskSheetState extends State<VoiceTaskSheet>
         });
       } else {
         // تسجيل صوتي للهاتف باستخدام record
-        final hasPermission = await _record.hasPermission();
+        final hasPermission = await _audioRecorder.hasPermission();
         if (hasPermission) {
           final tempDir = await getTemporaryDirectory();
           final fileName =
               'voice_task_${DateTime.now().millisecondsSinceEpoch}.m4a';
           final filePath = path.join(tempDir.path, fileName);
-          await _record.start(path: filePath);
+          await _audioRecorder.start(const RecordConfig(), path: filePath);
           setState(() {
             _isRecording = true;
             _duration = Duration.zero;
@@ -283,14 +285,14 @@ class _VoiceTaskSheetState extends State<VoiceTaskSheet>
         _isRecording = false;
       });
       // حفظ البيانات كملف wav (مؤقتًا: لا يتم الحفظ الفعلي، فقط محاكاة)
-      final tempDir = '/';
+      const tempDir = '/';
       final fileName =
           'voice_task_${DateTime.now().millisecondsSinceEpoch}.wav';
       final filePath = tempDir + fileName;
       _filePath = filePath;
       // ملاحظة: يجب استخدام مكتبة إضافية لتحويل PCM إلى WAV وحفظه فعليًا على الويب
     } else {
-      await _record.stop();
+      await _audioRecorder.stop();
       _timer?.cancel();
       setState(() {
         _isRecording = false;
@@ -378,7 +380,7 @@ class _VoiceTaskSheetState extends State<VoiceTaskSheet>
           mainAxisSize: MainAxisSize.min,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 340),
+              constraints: const BoxConstraints(maxWidth: 340),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -26,13 +26,14 @@ class TaskAdapter extends TypeAdapter<Task> {
       audioPath: fields[6] as String?,
       isVoiceTask: fields[7] as bool,
       isPinned: fields[8] as bool,
+      color: fields[9] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Task obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -50,7 +51,9 @@ class TaskAdapter extends TypeAdapter<Task> {
       ..writeByte(7)
       ..write(obj.isVoiceTask)
       ..writeByte(8)
-      ..write(obj.isPinned);
+      ..write(obj.isPinned)
+      ..writeByte(9)
+      ..write(obj.color);
   }
 
   @override

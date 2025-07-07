@@ -39,9 +39,10 @@ class TaskProvider extends ChangeNotifier {
     _setLoading(false);
   }
 
-  Future<void> addTask(String title, String content, Priority priority) async {
-    final newTask =
-        Task.create(title: title, content: content, priority: priority);
+  Future<void> addTask(String title, String content, Priority priority,
+      [int? color]) async {
+    final newTask = Task.create(
+        title: title, content: content, priority: priority, color: color);
     await _taskService.addTask(newTask);
     await loadTasks();
     notifyListeners();
@@ -60,10 +61,12 @@ class TaskProvider extends ChangeNotifier {
   }
 
   Future<void> updateTask(
-      Task task, String title, String content, Priority priority) async {
+      Task task, String title, String content, Priority priority,
+      [int? color]) async {
     task.title = title;
     task.content = content;
     task.priority = priority;
+    if (color != null) task.color = color;
     await _taskService.updateTask(task);
     await loadTasks();
     notifyListeners();

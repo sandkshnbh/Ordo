@@ -20,12 +20,10 @@ class AppTheme {
       primary: active,
       secondary: button,
       surface: background,
-      background: background,
       error: Colors.redAccent,
       onPrimary: Colors.black,
       onSecondary: primaryText,
       onSurface: primaryText,
-      onBackground: primaryText,
       onError: Colors.black,
     ),
     appBarTheme: AppBarTheme(
@@ -39,7 +37,7 @@ class AppTheme {
         fontWeight: FontWeight.bold,
       ),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyLarge: TextStyle(color: primaryText, height: 1.4),
       bodyMedium: TextStyle(color: secondaryText, height: 1.4),
       titleLarge: TextStyle(color: primaryText, fontWeight: FontWeight.bold),
@@ -57,7 +55,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.grey.withOpacity(0.1),
-      labelStyle: TextStyle(color: secondaryText),
+      labelStyle: const TextStyle(color: secondaryText),
       hintStyle: TextStyle(color: secondaryText.withOpacity(0.8)),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -65,7 +63,7 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: active, width: 2),
+        borderSide: const BorderSide(color: active, width: 2),
       ),
     ),
   );

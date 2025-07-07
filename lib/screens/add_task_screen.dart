@@ -40,12 +40,11 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
   }
 
   void _submit() async {
-    print('تم الضغط على زر حفظ');
     if (_formKey.currentState?.validate() != true) return;
     final title = _titleController.text;
     final content = _contentController.text;
     final priority = _selectedPriority;
-    if (title.isEmpty || priority == null) {
+    if (title.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context)!.unexpected_error),
@@ -64,7 +63,8 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
       );
     } else {
       // إضافة مهمة جديدة
-      await widget.taskProvider.addTask(title, content, priority, _selectedColor);
+      await widget.taskProvider
+          .addTask(title, content, priority, _selectedColor);
     }
     widget.onClose();
   }
@@ -135,7 +135,7 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
                           controller: _titleController,
                           decoration: InputDecoration(
                             labelText: AppLocalizations.of(context)!.task_title,
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                           ),
                           validator: (value) => (value == null || value.isEmpty)
                               ? AppLocalizations.of(context)!.task_title
@@ -147,7 +147,7 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
                           decoration: InputDecoration(
                             labelText:
                                 AppLocalizations.of(context)!.task_description,
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                             suffixIcon: IconButton(
                               icon: const Icon(Icons.blur_on),
                               tooltip: AppLocalizations.of(context)!
@@ -189,20 +189,26 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
                         const SizedBox(height: 16),
                         Row(
                           children: [
-                            Text('لون الكرت:', style: TextStyle(color: Colors.white, fontSize: 15)),
+                            const Text('لون الكرت:',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 15)),
                             const SizedBox(width: 12),
                             GestureDetector(
                               onTap: () async {
-                                Color picked = _selectedColor != null ? Color(_selectedColor!) : Colors.blueAccent;
+                                Color picked = _selectedColor != null
+                                    ? Color(_selectedColor!)
+                                    : Colors.blueAccent;
                                 await showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(
                                     backgroundColor: Colors.grey[900],
-                                    title: const Text('اختر لون الكرت', style: TextStyle(color: Colors.white)),
+                                    title: const Text('اختر لون الكرت',
+                                        style: TextStyle(color: Colors.white)),
                                     content: SingleChildScrollView(
                                       child: ColorPicker(
                                         pickerColor: picked,
-                                        onColorChanged: (color) => picked = color,
+                                        onColorChanged: (color) =>
+                                            picked = color,
                                         enableAlpha: false,
                                         showLabel: false,
                                         pickerAreaHeightPercent: 0.7,
@@ -210,7 +216,9 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
                                     ),
                                     actions: [
                                       TextButton(
-                                        child: const Text('تم', style: TextStyle(color: Colors.blueAccent)),
+                                        child: const Text('تم',
+                                            style: TextStyle(
+                                                color: Colors.blueAccent)),
                                         onPressed: () {
                                           setState(() {
                                             _selectedColor = picked.value;
@@ -226,17 +234,22 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
                                 width: 32,
                                 height: 32,
                                 decoration: BoxDecoration(
-                                  color: _selectedColor != null ? Color(_selectedColor!) : Colors.blueAccent,
+                                  color: _selectedColor != null
+                                      ? Color(_selectedColor!)
+                                      : Colors.blueAccent,
                                   borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(color: Colors.white, width: 2),
+                                  border:
+                                      Border.all(color: Colors.white, width: 2),
                                 ),
                               ),
                             ),
                             if (_selectedColor != null)
                               IconButton(
-                                icon: Icon(Icons.clear, color: Colors.white70, size: 20),
+                                icon: const Icon(Icons.clear,
+                                    color: Colors.white70, size: 20),
                                 tooltip: 'إزالة اللون',
-                                onPressed: () => setState(() => _selectedColor = null),
+                                onPressed: () =>
+                                    setState(() => _selectedColor = null),
                               ),
                           ],
                         ),
@@ -275,7 +288,7 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
       value: _selectedPriority,
       decoration: InputDecoration(
         labelText: AppLocalizations.of(context)!.priority,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
       items: Priority.values.map((priority) {
         String label;
@@ -287,8 +300,8 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
             label = AppLocalizations.of(context)!.important;
             break;
           case Priority.normal:
-          default:
             label = AppLocalizations.of(context)!.normal;
+            break;
         }
         return DropdownMenuItem(
           value: priority,

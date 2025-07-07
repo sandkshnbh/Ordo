@@ -58,6 +58,9 @@ class Task extends HiveObject {
   @HiveField(8)
   bool isPinned;
 
+  @HiveField(9)
+  int? color;
+
   Task({
     required this.id,
     required this.title,
@@ -68,10 +71,14 @@ class Task extends HiveObject {
     this.audioPath,
     this.isVoiceTask = false,
     this.isPinned = false,
+    this.color,
   });
 
   factory Task.create(
-      {required String title, required String content, Priority? priority}) {
+      {required String title,
+      required String content,
+      Priority? priority,
+      int? color}) {
     return Task(
       id: const Uuid().v4(),
       title: title,
@@ -79,6 +86,7 @@ class Task extends HiveObject {
       creationDate: DateTime.now(),
       priority: priority ?? Priority.normal,
       isPinned: false,
+      color: color,
     );
   }
 
@@ -86,6 +94,7 @@ class Task extends HiveObject {
     required String title,
     required String audioPath,
     Priority? priority,
+    int? color,
   }) {
     return Task(
       id: const Uuid().v4(),
@@ -96,6 +105,7 @@ class Task extends HiveObject {
       audioPath: audioPath,
       isVoiceTask: true,
       isPinned: false,
+      color: color,
     );
   }
 }

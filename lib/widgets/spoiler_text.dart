@@ -103,8 +103,8 @@ class _NoisePainter extends CustomPainter {
     Colors.grey,
     Colors.grey.shade300,
     Colors.grey.shade600,
-    Color(0xFFB3C6FF), // أزرق فاتح
-    Color(0xFFD1B3FF), // بنفسجي فاتح
+    const Color(0xFFB3C6FF), // أزرق فاتح
+    const Color(0xFFD1B3FF), // بنفسجي فاتح
   ];
   final List<double> sizes = [0.5, 0.7, 1.0, 1.3, 1.7];
 

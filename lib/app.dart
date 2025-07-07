@@ -75,7 +75,7 @@ class MultiScreenApp extends StatefulWidget {
 }
 
 class _MultiScreenAppState extends State<MultiScreenApp> {
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   final List<Widget> _screens = [
     const HomeScreen(),
@@ -124,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: Text(

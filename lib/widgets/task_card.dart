@@ -150,7 +150,7 @@ class _StaggeredScribblePainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
     final rand = Random(size.width.toInt() + size.height.toInt());
-    final lineDelay = 0.12;
+    const lineDelay = 0.12;
     for (int i = 0; i < scribbleLines; i++) {
       final start = i * lineDelay;
       final end = start + (1 - lineDelay * (scribbleLines - 1));
@@ -221,7 +221,7 @@ class _StaggeredScribblePainter extends CustomPainter {
             final bubblePaint = Paint()
               ..color = Colors.white.withOpacity(0.18 + 0.18 * sin(time + j))
               ..style = PaintingStyle.fill;
-            canvas.drawCircle(points[j] + Offset(0, -4),
+            canvas.drawCircle(points[j] + const Offset(0, -4),
                 1.7 + 1.2 * sin(time + j), bubblePaint);
           }
         } else if (strikeStyle == StrikeStyle.flame) {
@@ -462,12 +462,12 @@ class _TaskCardState extends State<TaskCard>
   Widget _buildCardContent(
       BuildContext context, Task latestTask, TaskProvider taskProvider) {
     final modernColors = [
-      Color(0xFF317039), // Emerald Green
-      Color(0xFFF1BE49), // Maximum Yellow
-      Color(0xFFF8EDD9), // Antique White
-      Color(0xFFCC4B24), // Dark Pastel Red
-      Color(0xFFFFF1D4), // Papaya Whip
-      Color(0xFFFFFBEB), // Cosmic Latte
+      const Color(0xFF317039), // Emerald Green
+      const Color(0xFFF1BE49), // Maximum Yellow
+      const Color(0xFFF8EDD9), // Antique White
+      const Color(0xFFCC4B24), // Dark Pastel Red
+      const Color(0xFFFFF1D4), // Papaya Whip
+      const Color(0xFFFFFBEB), // Cosmic Latte
     ];
     final cardColor = modernColors[0];
     return Column(
@@ -492,7 +492,7 @@ class _TaskCardState extends State<TaskCard>
                   shape: BoxShape.circle,
                 ),
                 child: latestTask.isCompleted
-                    ? Icon(Icons.check, size: 16, color: Colors.black87)
+                    ? const Icon(Icons.check, size: 16, color: Colors.black87)
                     : null,
               ),
             ),
@@ -515,7 +515,7 @@ class _TaskCardState extends State<TaskCard>
                       if (latestTask.isVoiceTask)
                         Container(
                           margin: const EdgeInsetsDirectional.only(end: 8),
-                          child: Icon(
+                          child: const Icon(
                             Icons.mic,
                             size: 16,
                             color: Colors.blueAccent,
@@ -526,7 +526,7 @@ class _TaskCardState extends State<TaskCard>
                           builder: (context, strikeProvider, _) {
                             return ScribbleStrikeThrough(
                               text: latestTask.title,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                                 fontSize: 17,
@@ -592,7 +592,7 @@ class _TaskCardState extends State<TaskCard>
                     ),
                   );
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.play_arrow,
                   color: Colors.blueAccent,
                   size: 22,
@@ -629,8 +629,8 @@ class _AnimatedActionButton extends StatefulWidget {
     this.iconSize = 28,
     this.fontSize = 16,
     this.spacing = 6,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<_AnimatedActionButton> createState() => _AnimatedActionButtonState();

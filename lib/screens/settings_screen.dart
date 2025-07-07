@@ -42,7 +42,7 @@ class NeonIconButton extends StatelessWidget {
               color: glowColor.withOpacity(0.55),
               blurRadius: 18,
               spreadRadius: 1,
-              offset: Offset(0, 6),
+              offset: const Offset(0, 6),
             ),
           ],
         ),
@@ -56,7 +56,7 @@ class NeonIconButton extends StatelessWidget {
 }
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   static const languages = [
     {'code': 'ar', 'label': 'AR', 'flag': '🇱🇾'},
@@ -111,7 +111,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 16),
             Text(AppLocalizations.of(context)!.language,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.bold)),
@@ -178,7 +178,7 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     Text(
                       AppLocalizations.of(context)!.strike_style,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -257,95 +257,6 @@ class SettingsScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 24),
-            Consumer<CardCustomizationProvider>(
-              builder: (context, cardCustom, _) => Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('تخصيص كرت المهام',
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 12),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('إظهار ظل الكرت',
-                          style: TextStyle(color: Colors.white, fontSize: 16)),
-                      Switch(
-                        value: cardCustom.showShadow,
-                        onChanged: (val) => cardCustom.setShowShadow(val),
-                        activeColor: Colors.blueAccent,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('لون مخصص للكرت',
-                          style: TextStyle(color: Colors.white, fontSize: 16)),
-                      Switch(
-                        value: cardCustom.useCustomColor,
-                        onChanged: (val) => cardCustom.setUseCustomColor(val),
-                        activeColor: Colors.blueAccent,
-                      ),
-                    ],
-                  ),
-                  if (cardCustom.useCustomColor)
-                    Row(
-                      children: [
-                        Text('اختر اللون:',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15)),
-                        const SizedBox(width: 12),
-                        GestureDetector(
-                          onTap: () async {
-                            Color picked = cardCustom.customColor;
-                            await showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                backgroundColor: Colors.grey[900],
-                                title: const Text('اختر اللون',
-                                    style: TextStyle(color: Colors.white)),
-                                content: SingleChildScrollView(
-                                  child: ColorPicker(
-                                    pickerColor: picked,
-                                    onColorChanged: (color) => picked = color,
-                                    enableAlpha: false,
-                                    showLabel: false,
-                                    pickerAreaHeightPercent: 0.7,
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    child: const Text('تم',
-                                        style: TextStyle(
-                                            color: Colors.blueAccent)),
-                                    onPressed: () {
-                                      cardCustom.setCustomColor(picked);
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: 32,
-                            height: 32,
-                            decoration: BoxDecoration(
-                              color: cardCustom.customColor,
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(color: Colors.white, width: 2),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
             const Center(
               child: Text(
                 'صفحة الإعدادات',
@@ -380,10 +291,10 @@ class SettingsScreen extends StatelessWidget {
                               color: Colors.transparent,
                               borderRadius: BorderRadius.circular(16),
                             ),
-                            child: Icon(Icons.person,
+                            child: const Icon(Icons.person,
                                 color: Colors.white, size: 32),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Container(
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
@@ -394,7 +305,7 @@ class SettingsScreen extends StatelessWidget {
                               radius: 32,
                               backgroundColor: Colors.grey.shade900,
                               backgroundImage:
-                                  AssetImage('assets/icons/sk.png'),
+                                  const AssetImage('assets/icons/sk.png'),
                             ),
                           ),
                         ],
@@ -402,7 +313,7 @@ class SettingsScreen extends StatelessWidget {
                       const SizedBox(height: 18),
                       Text(
                         AppLocalizations.of(context)!.profile_card_title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -437,7 +348,7 @@ class SettingsScreen extends StatelessWidget {
                         children: [
                           NeonIconButton(
                             icon: FontAwesomeIcons.telegram,
-                            glowColor: Color(0xFF00C6FF),
+                            glowColor: const Color(0xFF00C6FF),
                             onTap: () =>
                                 _launchUrl(Uri.parse('https://t.me/sndkshnbh')),
                             tooltip: AppLocalizations.of(context)!
@@ -447,7 +358,7 @@ class SettingsScreen extends StatelessWidget {
                           const SizedBox(width: 16),
                           NeonIconButton(
                             icon: FontAwesomeIcons.twitter,
-                            glowColor: Color(0xFF1DA1F2),
+                            glowColor: const Color(0xFF1DA1F2),
                             onTap: () => _launchUrl(
                                 Uri.parse('https://twitter.com/sandkshnbh')),
                             tooltip: AppLocalizations.of(context)!

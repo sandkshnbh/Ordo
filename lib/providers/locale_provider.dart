@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ordo/core/theme.dart';
 
 class LocaleProvider extends ChangeNotifier {
   Locale? _locale;
