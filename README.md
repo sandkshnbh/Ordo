@@ -46,7 +46,7 @@ The Liquid Glass theme provides:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ordo.git
+git clone https://github.com/sandkshnbh/ordo.git
 cd ordo
 ```
 
