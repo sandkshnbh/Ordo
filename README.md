@@ -48,6 +48,7 @@ flutter build web           # Web
 ## Tech Stack
 
 - **Framework:** Flutter (Dart)
+- **Design:** Material 3 (M3) — dynamic color, custom theming
 - **State management:** flutter_bloc
 - **Local database:** drift (SQLite)
 - **Localization:** Custom AppLocalizations
