@@ -1,0 +1,82 @@
+name: ordo
+description: "A premium chat-based notes & tasks application."
+
+publish_to: 'none'
+
+version: 2026.7.16+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+
+  # Bunpod design system local packages
+  expressive_sheet:
+    path: packages/expressive_sheet
+  expressive_snack:
+    path: packages/expressive_snack
+  expressive_loading_indicator:
+    path: packages/expressive_loading_indicator
+  material_shapes:
+    path: packages/material_shapes
+  material_wavy_progress_indicator:
+    path: packages/material_wavy_progress_indicator
+
+  # Core libraries (reused from Bunpod)
+  google_fonts: ^8.1.0
+  flutter_svg: ^2.3.0
+  gap: ^3.0.1
+  flutter_bloc: ^9.1.1
+  get_it: ^9.2.1
+  extended_image: ^10.0.1
+  image_fade: ^0.6.2
+  package_info_plus: ^8.0.0
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.2.3
+  http: ^1.2.0
+
+  # Animation & UI
+  flutter_animate: ^4.5.0
+  lottie: ^3.3.1
+  cue: ^0.3.1
+  dynamic_color: ^1.7.0
+  motor: ^1.1.0
+  flutter_local_notifications: ^17.2.0
+  timezone: ^0.9.4
+
+  # Local Database
+  drift: ^2.16.0
+  sqlite3_flutter_libs: ^0.5.21
+  path_provider: ^2.1.6
+  path: ^1.9.0
+  share_plus: ^12.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  drift_dev: ^2.16.0
+  build_runner: ^2.4.9
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/SK/ordo.svg
+    - assets/SK/cat.svg
+    - assets/SK/icon/left.json
+    - assets/SK/icon/note.svg
+    - assets/SK/icon/task.svg
+    - assets/SK/icon/send.svg
+  fonts:
+    - family: Unbounded
+      fonts:
+        - asset: assets/SK/fonts/Unbounded-SemiBold.ttf
+          weight: 600
+        - asset: assets/SK/fonts/Unbounded-Bold.ttf
+          weight: 700

@@ -1,0 +1,47 @@
+# Flutter/Dart
+.dart_tool/
+.pub/
+.pub-cache/
+build/
+*.iml
+*.ipr
+*.iws
+.metadata
+devtools_options.yaml
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+*.swp
+*.log
+*.class
+*.pyc
+
+# Android
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# iOS
+**/ios/Flutter/.last_build_id
+
+# Coverage
+/coverage/
+
+# Symbolication
+app.*.symbols
+app.*.map.json
+
+# External projects (not part of ordo)
+bunpod-main/
+rive_app/
+
+# Docs (not part of app source)
+IMPLEMENTATION_SUMMARY.md
+IMPROVEMENTS.md
+README_IMPROVEMENTS.md
+SUMMARY.txt
+doc/
