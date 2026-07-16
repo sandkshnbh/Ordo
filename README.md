@@ -57,6 +57,16 @@ flutter build web
 - **Localization:** Custom AppLocalizations
 - **Notifications:** flutter_local_notifications
 
+## Special Thanks
+
+The M3E (Material 3 Expressive) design system components used in this project are from [Bunpod](https://github.com/kamranbekirovyz/bunpod) — an open-source Flutter design system by Kamran Bekirov.
+
+- [expressive_sheet](packages/expressive_sheet/)
+- [expressive_snack](packages/expressive_snack/)
+- [expressive_loading_indicator](packages/expressive_loading_indicator/)
+- [material_shapes](packages/material_shapes/)
+- [material_wavy_progress_indicator](packages/material_wavy_progress_indicator/)
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
