@@ -38,6 +38,10 @@ A premium chat-based notes & tasks application built with Flutter.
   </a>
 </p>
 
+<p align="center">
+  <sub>Click a wallet to send USDT (TRC-20) directly</sub>
+</p>
+
 ## Screenshots
 
 <p align="center">
