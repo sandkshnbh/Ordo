@@ -10,10 +10,6 @@ A premium chat-based notes & tasks application built with Flutter.
   <a href="https://t.me/ordosk5">
     <img src="https://img.shields.io/badge/Join_Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
   </a>
-  &nbsp;&nbsp;
-  <a href="https://link.trustwallet.com/send?coin=195&address=TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR&token_id=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t">
-    <img src="https://img.shields.io/badge/Donate_USDT-0055FF?style=for-the-badge&logo=trustwallet&logoColor=white" alt="Donate"/>
-  </a>
 </p>
 
 <p align="center">
