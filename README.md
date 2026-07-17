@@ -16,6 +16,12 @@ A premium chat-based notes & tasks application built with Flutter.
   </a>
 </p>
 
+<p align="center">
+  <img src="Screenshot/QRcodeforfinancialsupport.jpg" alt="USDT donation QR" width="200"/>
+  <br/>
+  <strong>USDT (TRC-20):</strong> <code>TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR</code>
+</p>
+
 ## Screenshots
 
 <p align="center">
