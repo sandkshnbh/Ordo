@@ -6,6 +6,16 @@ A premium chat-based notes & tasks application built with Flutter.
   <img src="Screenshot/cover.jpg" alt="ordo cover" width="800"/>
 </p>
 
+<p align="center">
+  <a href="https://t.me/ordosk5">
+    <img src="https://img.shields.io/badge/Join_Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://link.trustwallet.com/send?coin=195&address=TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR&token_id=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t">
+    <img src="https://img.shields.io/badge/Donate_USDT-0055FF?style=for-the-badge&logo=trustwallet&logoColor=white" alt="Donate"/>
+  </a>
+</p>
+
 ## Screenshots
 
 <p align="center">
@@ -70,29 +80,3 @@ The M3E (Material 3 Expressive) design system components used in this project ar
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
-
-## Community
-
-Join the Telegram group for updates, support, and feedback:
-
-<p align="center">
-  <a href="https://t.me/ordosk5">
-    <img src="https://img.shields.io/badge/Join_Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
-  </a>
-</p>
-
-## Support
-
-If you find this project helpful, consider supporting the developer.
-
-<p align="center">
-  <img src="Screenshot/QRcodeforfinancialsupport.jpg" alt="USDT donation QR" width="250"/>
-</p>
-
-**USDT (TRC-20):** `TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR`
-
-<p align="center">
-  <a href="https://link.trustwallet.com/send?coin=195&address=TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR&token_id=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t">
-    <img src="https://img.shields.io/badge/Pay_via_Trust_Wallet-0055FF?style=for-the-badge&logo=trustwallet&logoColor=white" alt="Pay via Trust Wallet"/>
-  </a>
-</p>
