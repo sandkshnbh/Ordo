@@ -20,6 +20,24 @@ A premium chat-based notes & tasks application built with Flutter.
   <code>TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR</code>
 </p>
 
+<p align="center">
+  <a href="https://link.trustwallet.com/send?coin=195&address=TSqLvSjij9KnqVCaU63mpp2bEqbnaoBpgR&token_id=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t">
+    <img src="https://img.shields.io/badge/Trust_Wallet-0055FF?style=for-the-badge&logo=trustwallet&logoColor=white" alt="Trust Wallet"/>
+  </a>
+  &nbsp;
+  <a href="https://www.tronlink.org/">
+    <img src="https://img.shields.io/badge/TronLink-FF6B35?style=for-the-badge&logo=tron&logoColor=white" alt="TronLink"/>
+  </a>
+  &nbsp;
+  <a href="https://metamask.io/">
+    <img src="https://img.shields.io/badge/MetaMask-E2761B?style=for-the-badge&logo=metamask&logoColor=white" alt="MetaMask"/>
+  </a>
+  &nbsp;
+  <a href="https://www.binance.com/en/web3wallet">
+    <img src="https://img.shields.io/badge/Binance-F0B90B?style=for-the-badge&logo=binance&logoColor=black" alt="Binance"/>
+  </a>
+</p>
+
 ## Screenshots
 
 <p align="center">
